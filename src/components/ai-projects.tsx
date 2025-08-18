@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { ArrowUpRight, SquareCode, GraduationCap, GitCompare, Table, Book, Music } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export type TimeLine_01Entry = {
   icon: React.ComponentType<{ className?: string }>;
@@ -198,11 +199,14 @@ export default function AiProjects({
                     }
                   >
                     {entry.image && (
-                      <img
+                      <Image
                         src={entry.image}
                         alt={`${entry.title} visual`}
                         className="mb-4 w-full h-72 rounded-lg object-cover group-hover:scale-120 transition-transform duration-500 ease-out"
-                        loading="lazy"
+                        loading={index < 2 ? 'eager' : 'lazy'}
+                        width={1000}
+                        height={1000}
+                        priority={index < 2}
                       />
                     )}
                     <div className="space-y-4">
