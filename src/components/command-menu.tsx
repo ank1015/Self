@@ -3,14 +3,26 @@
 import { useCommandState } from "cmdk";
 import type { LucideProps } from "lucide-react";
 import {
+  Bitcoin,
+  Book,
+  Briefcase,
   BriefcaseBusinessIcon,
   CircleUserIcon,
   CornerDownLeftIcon,
+  DollarSign,
   DownloadIcon,
+  GitCompare,
+  GraduationCap,
+  Home,
   LetterTextIcon,
   MoonStarIcon,
+  Music,
   RssIcon,
+  Spade,
+  SquareCode,
+  StickyNote,
   SunIcon,
+  Table,
   TextIcon,
   TriangleDashedIcon,
   TypeIcon,
@@ -53,9 +65,9 @@ type CommandLinkItem = {
 
 const MENU_LINKS: CommandLinkItem[] = [
   {
-    title: "Daifolio",
+    title: "Home",
     href: "/",
-    icon: ChanhDaiMark,
+    icon: Home,
   },
   {
     title: "Blog",
@@ -63,47 +75,80 @@ const MENU_LINKS: CommandLinkItem[] = [
     icon: RssIcon,
   },
   {
-    title: "Components",
-    href: "/components",
-    icon: Icons.react,
+    title: "Work",
+    href: "/work",
+    icon: Briefcase,
   },
 ];
 
+const blogLinks = [
+  {
+    title: "Workflows & Agents",
+    href: "/blog/workflows-and-agents",
+    icon: StickyNote,
+  },
+  {
+    title: "Workflows vs Agents",
+    href: "/blog/workflows-vs-agents",
+    icon: StickyNote,
+  },
+  {
+    title: "Goals & LLM's",
+    href: "/blog/goals-and-llms",
+    icon: StickyNote,
+  },
+]
+
 const DAIFOLIO_LINKS: CommandLinkItem[] = [
   {
-    title: "About",
-    href: "/#about",
-    icon: LetterTextIcon,
+    title: "Agentic Python Notebook",
+    href: "work/agentic-python-notebook",
+    icon: SquareCode,
   },
   {
-    title: "Tech Stack",
-    href: "/#stack",
-    icon: Icons.ts,
+    title: "Agentic Deep Researcher",
+    href: "/work/agentic-deep-researcher",
+    icon: GraduationCap,
   },
   {
-    title: "Experience",
-    href: "/#experience",
-    icon: BriefcaseBusinessIcon,
+    title: "Deep Codebase Indexer",
+    href: "/work/codebase-indexer",
+    icon: GitCompare,
   },
   {
-    title: "Projects",
-    href: "/#projects",
-    icon: Icons.project,
+    title: "Agentic Spreadsheet",
+    href: "/work/ai-spreadsheets",
+    icon: Table,
   },
   {
-    title: "Honors & Awards",
-    href: "/#awards",
-    icon: Icons.award,
+    title: "AI Tutor",
+    href: "/work/ai-tutor",
+    icon: GraduationCap,
   },
   {
-    title: "Certifications",
+    title: "Explainable RAG",
     href: "/#certs",
-    icon: Icons.certificate,
+    icon: Book,
   },
   {
-    title: "Download vCard",
-    href: "/vcard",
-    icon: CircleUserIcon,
+    title: "Vibe Music Karaoke",
+    href: "/work/karaoke",
+    icon: Music,
+  },
+  {
+    title: "Poker Application",
+    href: "/work/poker-application",
+    icon: Spade,
+  },
+  {
+    title: "Crypto Payment Application",
+    href: "/work/blockchain-developer",
+    icon: DollarSign,
+  },
+  {
+    title: "Blockchain Developer",
+    href: "work/crypto-payments",
+    icon: Bitcoin,
   },
 ];
 
@@ -175,17 +220,6 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
     [setTheme]
   );
 
-  const { blogLinks, componentLinks } = useMemo(
-    () => ({
-      blogLinks: posts
-        .filter((post) => post.metadata?.category !== "components")
-        .map(postToCommandLinkItem),
-      componentLinks: posts
-        .filter((post) => post.metadata?.category === "components")
-        .map(postToCommandLinkItem),
-    }),
-    [posts]
-  );
 
   return (
     <>
@@ -238,7 +272,7 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
           <CommandSeparator />
 
           <CommandLinkGroup
-            heading="Daifolio"
+            heading="work"
             links={DAIFOLIO_LINKS}
             onLinkSelect={handleOpenLink}
           />
@@ -255,15 +289,6 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
           <CommandSeparator />
 
           <CommandLinkGroup
-            heading="Components"
-            links={componentLinks}
-            fallbackIcon={Icons.react}
-            onLinkSelect={handleOpenLink}
-          />
-
-          <CommandSeparator />
-
-          <CommandLinkGroup
             heading="Social Links"
             links={SOCIAL_LINK_ITEMS}
             onLinkSelect={handleOpenLink}
@@ -271,71 +296,6 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
 
           <CommandSeparator />
 
-          <CommandGroup heading="Brand Assets">
-            <CommandItem
-              onSelect={() => {
-                handleCopyText(
-                  getMarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
-                  "Copied Mark as SVG"
-                );
-              }}
-            >
-              <ChanhDaiMark />
-              Copy Mark as SVG
-            </CommandItem>
-
-            <CommandItem
-              onSelect={() => {
-                handleCopyText(
-                  getWordmarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
-                  "Copied Logotype as SVG"
-                );
-              }}
-            >
-              <TypeIcon />
-              Copy Logotype as SVG
-            </CommandItem>
-
-            <CommandItem
-              onSelect={() => handleOpenLink("/blog/chanhdai-brand")}
-            >
-              <TriangleDashedIcon />
-              Brand Guidelines
-            </CommandItem>
-
-            <CommandItem asChild>
-              <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
-                <DownloadIcon />
-                Download Brand Assets
-              </a>
-            </CommandItem>
-          </CommandGroup>
-
-          <CommandSeparator />
-
-          <CommandGroup heading="Theme">
-            <CommandItem
-              keywords={["theme"]}
-              onSelect={() => handleThemeChange("light")}
-            >
-              <SunIcon />
-              Light
-            </CommandItem>
-            <CommandItem
-              keywords={["theme"]}
-              onSelect={() => handleThemeChange("dark")}
-            >
-              <MoonStarIcon />
-              Dark
-            </CommandItem>
-            <CommandItem
-              keywords={["theme"]}
-              onSelect={() => handleThemeChange("system")}
-            >
-              <Icons.contrast />
-              Auto
-            </CommandItem>
-          </CommandGroup>
         </CommandList>
 
         <CommandMenuFooter />
@@ -441,7 +401,7 @@ function CommandMenuFooter() {
       <div className="flex h-10" />
 
       <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
-        <ChanhDaiMark className="size-6 text-muted-foreground" aria-hidden />
+        <span className="pixelify-sans text-[18px]">AnK</span>
 
         <div className="flex shrink-0 items-center gap-2">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>

@@ -11,6 +11,13 @@ import { TypographyBlockquote } from "@/components/typography/blockquote";
 import { TypographyInlineCode } from "@/components/typography/inline-code";
 import { BackButton } from "@/components/back-button";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Blog | Goals & LLM's",
+    description: "This post breaks down Agentic Systems from first principles to build up a foundation for Workflows and Agents.",
+  };
+
 const GoalsAndLLMs = () => {
     return (
         <div className="mx-8 pb-20">

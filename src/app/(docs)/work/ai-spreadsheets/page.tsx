@@ -23,7 +23,7 @@ Tech Stack used:
 
 export const metadata: Metadata = {
     title: "AI Spreadsheets",
-    description: "A collection of projects and work i did in my Software Developer journey.",
+    description: "Cursor for spreadsheets. An AI agent embedded in a spreadsheet that analyzes the data, answer questions and perform actions in the spreadsheet.",
   };
 
 const ExplainableRag = () => {

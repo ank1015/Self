@@ -17,7 +17,7 @@ Co-founder of a consumer based crypto payments application built to bring the bl
 
 export const metadata: Metadata = {
     title: "Crypto Payments application",
-    description: "A collection of projects and work i did in my Software Developer journey.",
+    description: "A consumer crypto based payments platform built to bring the blockchain technology to the masses and making international payments easier.",
   };
 
 const Karaoke = () => {

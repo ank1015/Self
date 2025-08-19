@@ -59,9 +59,9 @@ export const defaultEntries: TimeLine_01Entry[] = [
     description:
       "An Indexer that watches your codebase for any changes and indexes it with various techniques like semantic, structural, lexical and graph based indexing to create context for LLM's.",
     image:
-      "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/dashboard-02.png",
+      "https://gwmbheqzltuakdzsddzc.supabase.co/storage/v1/object/public/self%20assets/codebas-indexer.png",
       button: {
-        url: "https://ruixenui.com",
+        url: "/work/codebase-indexer",
         text: "Know more",
       },
   },
@@ -203,7 +203,7 @@ export default function AiProjects({
                         src={entry.image}
                         alt={`${entry.title} visual`}
                         className="mb-4 w-full h-72 rounded-lg object-cover group-hover:scale-120 transition-transform duration-500 ease-out"
-                        loading={index < 2 ? 'eager' : 'lazy'}
+                        loading={'eager'}
                         width={1000}
                         height={1000}
                         priority={index < 2}

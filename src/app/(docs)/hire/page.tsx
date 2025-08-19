@@ -1,13 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import { Separator } from '@/app/page';
-import AiProjects from '@/components/ai-projects';
-import BeforeAiProjects from '@/components/before-ai-projects';
-import { About } from "@/features/profile/componente/about";
 import { PanelContent } from "@/components/panel";
 import { Prose } from "@/components/ui/typography";
 import { Markdown } from "@/components/markdown";
-import { USER } from "@/data/user";
 
 export const metadata: Metadata = {
     title: "Hire",
@@ -18,7 +14,7 @@ const content = `
   Hey, I am looking for a full time role in a company/startup that is researching or building Agentic AI applications in any domain.
 
   Pros of hiring me:
-  * I am really really passionate passionate about this field and learning more while building
+  * I am really really passionate about this field and would love to learn more while building
   * I am willing to work 80+ hours week. Having worked on my own startups and projects for majority of last 2 years, it's a routine for me.
   * I get things done quickly. Even if I don't know something, I usually find a way to get it done.
 

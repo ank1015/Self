@@ -17,7 +17,7 @@ I started my career as a blockchain developer in July 2021. Here are major thing
 
 export const metadata: Metadata = {
     title: "Blockchain Developer",
-    description: "A collection of projects and work i did in my Software Developer journey.",
+    description: "My journey as a blockchain full-stack developer. During this period, i worked in some startups and won multiple online and offline hackathon's.",
   };
 
 const Karaoke = () => {

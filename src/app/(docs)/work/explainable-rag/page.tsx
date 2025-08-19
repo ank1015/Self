@@ -15,7 +15,7 @@ This makes it better to trust the AI and it's reasoning specially for domains li
 
 export const metadata: Metadata = {
     title: "Explainable RAG",
-    description: "A collection of projects and work i did in my Software Developer journey.",
+    description: "A RAG system that not only answers your queries from your documents but also highlights the parts of pdf's used to answer that query to establish trust.",
   };
 
 const ExplainableRag = () => {

@@ -1,0 +1,16 @@
+[
+  {
+    "origin": [
+      "https://ank1015.com",
+      "https://www.ank1015.com"
+    ],
+    "method": [
+      "GET",
+      "HEAD"
+    ],
+    "responseHeader": [
+      "*"
+    ],
+    "maxAgeSeconds": 3000
+  }
+]

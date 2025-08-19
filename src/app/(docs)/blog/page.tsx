@@ -12,14 +12,14 @@ const articles = [
     {
         image: '/blog2.png',
         heading: 'Workflows and Agents',
-        description: 'Wide Research marks a milestone in our exploration of the scaling laws of AI agents, but it\'s just the beginning.',
+        description: 'This post delves into using a combination of Workflows & Agents.',
         imageDescription: 'Agentic Systems',
         link: '/blog/workflows-and-agents'
     },
     {
         image: '/blog3.png',
         heading: 'Workflows vs Agents',
-        description: `This post shares the local optima we arrived at through our own "SGD". If you're building your own AI agent, I hope these principles help you converge faster.`,
+        description: `This post delves into using different types of Agentic systems.`,
         imageDescription: 'Agentic Systems',
         link: '/blog/workflows-vs-agents'
     },

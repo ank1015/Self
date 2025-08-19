@@ -15,6 +15,13 @@ import { TypographyInlineCode } from "@/components/typography/inline-code";
 import { TypographyTable } from "@/components/typography/table";
 import { BackButton } from "@/components/back-button";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Blog | Workflows & Agents",
+    description: "This post delves into using a combination of Workflows & Agents.",
+  };
+
 const WorkflowsAndAgents = () => {
     return (
         <div className="mx-8 pb-20">

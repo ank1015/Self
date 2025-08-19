@@ -22,7 +22,7 @@ Future plans:
 
 export const metadata: Metadata = {
     title: "AI Tutor",
-    description: "A collection of projects and work i did in my Software Developer journey.",
+    description: "An AI tutor that explains you concepts in a live conversational class and also manages its own whiteboard to write notes on while teaching.",
   };
 
 const AiTutor = () => {

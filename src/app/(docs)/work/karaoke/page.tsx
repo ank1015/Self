@@ -14,7 +14,7 @@ This project was vibe coded in a day when i was playing with new AI tools. Inspi
 
 export const metadata: Metadata = {
     title: "Vibe karaoke",
-    description: "A collection of projects and work i did in my Software Developer journey.",
+    description: "Vibe Coded karaoke app that decomposes a sony into its vocals and various instrumental components to mix and play with it. Inspired by a twitter post.",
   };
 
 const Karaoke = () => {

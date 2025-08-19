@@ -11,7 +11,7 @@ import { USER } from "@/data/user";
 
 export const metadata: Metadata = {
     title: "Agentic Python Notebook",
-    description: "A collection of projects and work i did in my Software Developer journey.",
+    description: "Cursor for Python Notebooks. This is an agentic notebook that implements, executes, and improves on its mistakes in notebook cells.",
   };
 
 const content = `

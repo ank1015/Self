@@ -14,7 +14,7 @@ import { ExampleReport1 } from "@/components/example-reports";
 
 export const metadata: Metadata = {
     title: "Agentic Deep Researcher",
-    description: "A collection of projects and work i did in my Software Developer journey.",
+    description: "A Deep Researcher agent that changes it's research path as it gains new information. Scored 2nd on deep research bench above openai deep researcher.",
   };
 
 const content = `

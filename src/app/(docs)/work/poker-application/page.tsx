@@ -20,7 +20,7 @@ Scaled up to 200+ weekly players.
 
 export const metadata: Metadata = {
     title: "Poker application",
-    description: "A collection of projects and work i did in my Software Developer journey.",
+    description: `A "Chess.com for poker". We built a poker application to not just play but also learn & socialize with features like puzzles, rant-rooms, tournaments and more.`,
   };
 
 const Karaoke = () => {
