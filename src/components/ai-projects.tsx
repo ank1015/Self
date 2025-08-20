@@ -5,6 +5,14 @@ import { ArrowUpRight, SquareCode, GraduationCap, GitCompare, Table, Book, Music
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
+function slugifyId(input: string): string {
+  return input
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
+
 export type TimeLine_01Entry = {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
@@ -147,9 +155,12 @@ export default function AiProjects({
 
   const visibleEntries = showAll ? entries : entries.slice(0, 5);
 
+  // Enable hash-based deep linking to specific cards
+  useAiProjectsHashBehavior(entries, showAll, setShowAll);
+
   return (
     <>
-        <div className="screen-line-after px-4">
+        <div className="screen-line-after px-4" id="ai">
             <h1 className="text-lg font-semibold">AI</h1>
         </div>
       <section className="pb-16 pt-8">
@@ -159,10 +170,12 @@ export default function AiProjects({
           <div className="mx-auto mt-0 max-w-3xl space-y-16 md:space-y-16 px-4">
             {visibleEntries.map((entry, index) => {
               const isActive = true;
+              const slug = slugifyId(entry.title);
 
               return (
                 <div
                   key={index}
+                  id={slug}
                   className="relative flex flex-col gap-4 md:flex-row md:gap-8 pb-8 screen-line-after"
                 >
                   {/* Sticky meta column */}
@@ -312,4 +325,43 @@ export default function AiProjects({
       </section>
     </>
   );
+}
+
+// Handle deep-linking to specific AI project cards via URL hash.
+// Expands the list if needed and scrolls the target into view.
+// Runs on mount and on hash changes.
+export function useAiProjectsHashBehavior(entries: TimeLine_01Entry[], showAll: boolean, setShowAll: (v: boolean) => void) {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const tryScrollToHash = () => {
+      const hash = window.location.hash?.slice(1);
+      if (!hash) return;
+
+      const targetIndex = entries.findIndex((e) => slugifyId(e.title) === hash);
+      if (targetIndex === -1) return;
+
+      const doScroll = () => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      };
+
+      if (!showAll && targetIndex >= 5) {
+        setShowAll(true);
+        // Defer scroll until after the expanded items render
+        setTimeout(doScroll, 50);
+      } else {
+        // Ensure we scroll after current frame
+        requestAnimationFrame(doScroll);
+      }
+    };
+
+    // Initial attempt on mount
+    tryScrollToHash();
+    // Listen for in-page hash changes
+    window.addEventListener("hashchange", tryScrollToHash);
+    return () => window.removeEventListener("hashchange", tryScrollToHash);
+  }, [entries, showAll, setShowAll]);
 }
