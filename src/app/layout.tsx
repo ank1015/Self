@@ -50,7 +50,7 @@ export default function RootLayout({
         <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
         <SiteFooter />
         </>
-        <Analytics />
+        <Analytics mode="production" />
       </body>
     </html>
   );
